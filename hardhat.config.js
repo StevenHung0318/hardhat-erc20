@@ -1,5 +1,5 @@
 require("@nomiclabs/hardhat-waffle")
-require("@nomiclabs/hardhat-etherscan")
+require("@nomicfoundation/hardhat-verify")
 require("hardhat-deploy")
 require("solidity-coverage")
 require("hardhat-gas-reporter")
@@ -76,13 +76,14 @@ module.exports = {
       sepolia: ETHERSCAN_API_KEY,
       polygon: POLYGONSCAN_API_KEY,
     },
+    customChains: [],
   },
   gasReporter: {
     enabled: REPORT_GAS,
     currency: "USD",
     outputFile: "gas-report.txt",
     noColors: true,
-    // coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+    coinmarketcap: process.env.COINMARKETCAP_API_KEY,
   },
   contractSizer: {
     runOnCompile: false,
